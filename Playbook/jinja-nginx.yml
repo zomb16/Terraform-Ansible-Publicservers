@@ -3,7 +3,7 @@
     hosts: allservers
     gather_facts: yes
     become: yes
-    become_user: ubuntu
+    become_user: root
     vars:
       custom_heading: "Hello Ramesh Welcome To DevOps B27 Batch Training By Sreeharsha Veerapalli"
       todays_date: "{{ ansible_facts['date_time']['date'] }}"
@@ -24,22 +24,22 @@
          template: >
             src=/home/ubuntu/class34/Terraform-Ansible-Publicservers/Playbook/index.j2
             dest=/var/www/html/index.nginx-debian.html
-            owner=ubuntu
-            group=ubuntu
+            owner=root
+            group=root
             mode=0644
        - name: Copy the style files to destination folder.
          copy: >
             src=/home/ubuntu/class34/Terraform-Ansible-Publicservers/Playbook/style.css
             dest=/var/www/html/style.css
-            owner=ubuntu
-            group=ubuntu
+            owner=root
+            group=root
             mode=0644
        - name: Copy the javascript files to destination folder.
          copy: >
             src=/home/ubuntu/class34/Terraform-Ansible-Publicservers/Playbook/scorekeeper.js
             dest=/var/www/html/scorekeeper.js
-            owner=ubuntu
-            group=ubuntu
+            owner=root
+            group=root
             mode=0644
        - name: restart nginx
          command: service nginx restart
